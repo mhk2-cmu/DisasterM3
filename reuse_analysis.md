@@ -4,7 +4,7 @@
 
 For this reuse analysis, I selected EarthVQA, a remote-sensing visual question answering dataset. It is relevant to the DisasterM3 evaluation framework because it also combines remote-sensing imagery with natural-language questions and ground-truth answers.
 
-From the EarthVQA repository, the dataset is organized around image folders, mask folders, and QA annotation files. The data preparation section shows separate folders such as `images_png`, `masks_png`, and QA files such as `Train_QA.json`, `Val_QA.json`, and `Test_QA.json`. The repository also lists semantic categories such as background, building, road, water, barren, forest, agriculture, and playground.
+From the EarthVQA repository and README, the dataset setup separates remote-sensing images, semantic masks, and QA annotations. The repository also lists semantic categories such as background, building, road, water, barren, forest, agriculture, and playground.
 
 This makes EarthVQA a useful reference for thinking about how another remote-sensing QA dataset could be added to the DisasterM3 framework.
 
@@ -51,7 +51,7 @@ class EarthVQADataset(BaseDataset):
         ...
 ```
 
-The loader would read EarthVQA QA files, connect each question-answer pair to the correct image, and optionally include the mask path as metadata. After this step, the model runner would only need to receive a standard sample containing an image, question, and task type. It would not need to know the original EarthVQA folder layout.
+The loader would read EarthVQA QA files, connect each question-answer pair to the relevant image based on the dataset’s annotation structure, and optionally include the mask path as metadata. After this step, the model runner would only need to receive a standard sample containing an image, question, and task type. It would not need to know the original EarthVQA folder layout.
 
 This design also helps the evaluator. For example:
 
