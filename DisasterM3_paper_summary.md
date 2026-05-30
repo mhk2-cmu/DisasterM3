@@ -14,11 +14,11 @@ The problem is that existing VLM datasets for remote sensing were built around g
 
 To address this, the authors built DisasterM3, a dataset designed around three ideas they call the "three multis":
 
-- Multi-hazard: It covers 36 real historical disaster events across 10 types (earthquakes, floods, wildfires, hurricanes, tsunamis, tornadoes, explosions, volcanoes, landslides, conflict) and 5 continents. This variety is important because different disasters damage things in very different ways.
+- Multi-hazard: It covers 36 real historical disaster events across 10 types (earthquakes, floods, wildfires, hurricanes, tsunamis, tornadoes, explosions, volcanoes, landslides, conflict) and 5 continents. The reasoning is that different disasters damage things in fundamentally different ways, so a model trained only on floods will likely fail on earthquakes or explosions.
 
-- Multi-sensor: Optical satellite images are often blocked by clouds during and after disasters. DisasterM3 includes SAR (Synthetic Aperture Radar) imagery alongside optical, since SAR can see through clouds. This makes the dataset more realistic for actual disaster scenarios.
-
-- Multi-task: The dataset defines 9 tasks covering 5 types of capabilities, namely recognizing disaster type and affected structures, counting damaged buildings, estimating road damage area, pixel-level segmentation of damaged objects, and generating full disaster reports with restoration advice.
+- Multi-sensor: Optical satellite images are often blocked by clouds during and after disasters, which is exactly when imagery is needed the most. The dataset includes SAR imagery alongside optical for this reason, since SAR can see through those conditions. This is an important practical consideration that most prior datasets ignored.
+  
+- Multi-task: The dataset defines 9 tasks covering 5 types of capabilities, namely recognizing disaster type and affected structures, counting damaged buildings, estimating road damage area, pixel-level segmentation of damaged objects, and generating full disaster reports with restoration advice. This reflects the fact that real disaster response requires different kinds of information at different stages.
 
 The dataset contains 26,988 image pairs (pre and post-disaster) and 123,010 question-answer pairs, annotated by domain experts using FEMA and UNOSAT guidelines.
 
