@@ -1,0 +1,20 @@
+dataset:
+  name: disasterm3
+  subset: bearing_body
+  data_root: data
+
+model:
+  model_id: Qwen/Qwen2.5-VL-7B-Instruct
+  max_tokens: 8192
+  batch_size: 8
+
+runtime:
+  script: pyscripts/run_vllm.py
+  image_size: null
+  tensor_parallel_size: null
+  overwrite: false
+
+output:
+  results_dir: results
+
+  
