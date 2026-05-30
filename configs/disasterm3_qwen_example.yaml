@@ -1,7 +1,6 @@
 dataset:
   name: disasterm3
   subset: bearing_body
-  data_root: data
 
 model:
   model_id: Qwen/Qwen2.5-VL-7B-Instruct
@@ -16,5 +15,3 @@ runtime:
 
 output:
   results_dir: results
-
-  
